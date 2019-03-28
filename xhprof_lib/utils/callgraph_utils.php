@@ -388,6 +388,16 @@ function xhprof_generate_dot_script($raw_data, $threshold, $source, $page,
   }
   $result = $result . "\n}";
 
+
+
+
+  $fp = fopen("/tmp/dotfile.txt", "w"); // FlameGraph
+  fwrite($fp, $result);                 // FlameGraph
+  fclose($fp);                          // FlameGraph
+
+
+
+
   return $result;
 }
 
